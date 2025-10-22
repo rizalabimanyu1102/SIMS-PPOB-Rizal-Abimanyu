@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  @keyframes scrollPromo {
+    from {
+      translate: 0%;
+    }
+    to {
+      translate: -100%;
+    }
+  }
+
+  .animate-scrollPromo {
+    display: flex;
+    animation: scrollPromo 20s linear infinite;
+  }
+}

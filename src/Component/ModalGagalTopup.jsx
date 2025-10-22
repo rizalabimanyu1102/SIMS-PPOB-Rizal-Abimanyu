@@ -1,0 +1,44 @@
+import { useNavigate } from "@tanstack/react-router";
+import { IoCloseCircle } from "react-icons/io5";
+
+export const ModalGagalTopup = ({
+  service,
+  nominal,
+  hideModal2,
+  setHideModal2,
+}) => {
+  const navigate = useNavigate();
+
+  const handleModal = (e) => {
+    e.preventDefault();
+    setHideModal2(false);
+    navigate({ to: "/", replace: true });
+  };
+  return (
+    <div
+      className={`fixed ${
+        hideModal2 && Number(nominal) >= 1000000 ? "flex" : "hidden"
+      } bg-black/50 w-screen h-screen inset-0 justify-center items-center text-white z-1000`}
+    >
+      <div className=" bg-white flex flex-col items-center gap-5 text-black px-8 min-[350px]:px-13 sm:px-18 py-5 rounded-lg shadow-2xl">
+        <IoCloseCircle className=" text-red-500 text-7xl" />
+        <div className="flex flex-col items-center">
+          <p className="text-center">{service}</p>
+          <p className="text-2xl sm:text-4xl font-bold">
+            Rp{new Intl.NumberFormat("id-ID").format(nominal)}
+          </p>
+          <p>gagal!</p>
+        </div>
+        <div className="flex flex-col gap-1 items-center">
+          <button
+            type="submit"
+            onClick={handleModal}
+            className=" text-red-500 p-2 cursor-pointer"
+          >
+            Kembali ke beranda
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
