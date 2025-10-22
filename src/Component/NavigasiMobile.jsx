@@ -23,6 +23,7 @@ export const NavigasiMobile = ({ toggle, setToggle }) => {
           </button>
           <Link
             to={"/topup"}
+            onClick={() => setToggle(false)}
             className={`${
               path === "/topup"
                 ? "bg-white text-red-500"
@@ -33,6 +34,7 @@ export const NavigasiMobile = ({ toggle, setToggle }) => {
           </Link>
           <Link
             to={"/transaction"}
+            onClick={() => setToggle(false)}
             className={`${
               path === "/transaction"
                 ? "bg-white text-red-500"
@@ -43,6 +45,7 @@ export const NavigasiMobile = ({ toggle, setToggle }) => {
           </Link>
           <Link
             to={"/akun"}
+            onClick={() => setToggle(false)}
             className={`${
               path === "/akun"
                 ? "bg-white text-red-500"
